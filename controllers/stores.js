@@ -22,19 +22,7 @@ exports.getStores = async (req, res, next) => {
 exports.updateStores = async (req, res, next) => {
   try {
     //BOUNDARY
-    const polygon = [
-      [35.50223614827076, 139.46798405428683],
-    [35.7895857759041, 138.98002490838377],
-    [35.879461497233635, 139.07009894945483],
-    [35.79145922532963, 139.71216519412445],
-    [35.78771228300614, 139.89231328058102],
- 
-    [35.70130217074246, 139.9139572399457],
-
-    [35.62559858875, 139.57748329222306]
-
-  ];
-
+    
 
   ;
   // inside => true
@@ -49,8 +37,7 @@ exports.updateStores = async (req, res, next) => {
   
     
     const { storeId, address, latitude, longitude } = req.body;
-    const point = [longitude, latitude]; 
-    const inside = isInsidePolygon(polygon, point);
+
     await Store.findOne({ storeId }, (err, store) => {
       if (err || !store) {
           return res.status(401).json({
@@ -77,8 +64,9 @@ exports.updateStores = async (req, res, next) => {
         });
     } else {
       store.longitude= longitude;
+      
     }
-    store.isInside = inside;
+   
     store.save((err, updatedUser) => {
       if (err) {
           console.log('USER UPDATE ERROR', err);

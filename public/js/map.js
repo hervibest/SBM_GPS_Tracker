@@ -18,8 +18,9 @@ async function getStores() {
       geometry: {
         type: 'Point',
         coordinates: [
-          parseFloat(store.latitude),
+          
           parseFloat(store.longitude),
+          parseFloat(store.latitude)
         ]
       },
       properties: {

@@ -13,7 +13,7 @@ const StoreSchema = new mongoose.Schema({
     required: [true, 'Please add an address']
   },
   isInside: {
-    type:String, default:'false'
+    type:String
   },
   latitude: {
     type:String, default:'false'
@@ -54,7 +54,7 @@ StoreSchema.pre('save', async function(next) {
  
     [35.70130217074246, 139.9139572399457],
 
-    [35.62559858875, 139.57748329222306]
+    [35.541163052894504, 139.73905533838624]
 
 ];
 ;
@@ -68,8 +68,8 @@ StoreSchema.pre('save', async function(next) {
 
 
 
-  const point = [this.longitude, this.latitude]; // Tokyo tower
-  const inside = isInsidePolygon(polygon, point);
+  const point = [ this.latitude, this.longitude]; // Tokyo tower
+  const inside = isInsidePolygon(polygon, point);;
 this.isInside = inside;
   // Do not save address
   this.address = undefined;
