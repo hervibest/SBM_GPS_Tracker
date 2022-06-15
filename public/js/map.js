@@ -12,7 +12,13 @@ async function getStores() {
   const res = await fetch('/api/v1/stores');
   const data = await res.json();
 
+
   const stores = data.data.map(store => {
+    let marker = "zoo"
+    if(store.isInside === "true"){
+      marker = "dog-park"
+    }
+    
     return {
       type: 'Feature', 
       geometry: {
@@ -25,7 +31,7 @@ async function getStores() {
       },
       properties: {
         storeId: store.storeId,
-        icon: 'zoo'
+        icon: marker 
       }
     };
   });

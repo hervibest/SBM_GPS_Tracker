@@ -1,5 +1,5 @@
 const express = require('express');
-const { getStores, addStore, updateStores } = require('../controllers/stores');
+const { getStores, addStore, updateStores, deleteStores } = require('../controllers/stores');
 
 const router = express.Router();
 
@@ -8,6 +8,7 @@ router
   .get(getStores)
   .post(addStore)
   .put(updateStores)
+  .delete(deleteStores)
 
 
 module.exports = router;

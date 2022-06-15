@@ -23,7 +23,7 @@ function showError(error) {
 }
 getLocation();
 
-// Send POST to API to add store
+// Send PUT to API to add store
 async function updateStore(e) {
   e.preventDefault();
 
@@ -53,13 +53,13 @@ async function updateStore(e) {
     });
 
     if (res.status === 400) {
-      throw Error("Store not exist!");
+      throw Error("Device not exist!");
     }
     if (res.status === 401) {
-      throw Error("Store not exist!");
+      throw Error("Device not exist!");
     }
 
-    alert("Store added!");
+    alert("Device updated!");
     window.location.href = "/index.html";
   } catch (err) {
     alert(err);

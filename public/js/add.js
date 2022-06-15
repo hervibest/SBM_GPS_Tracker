@@ -56,7 +56,7 @@ async function addStore(e) {
       throw Error("Store already exists!");
     }
 
-    alert("Store added!");
+    alert("Device added!");
     window.location.href = "/index.html";
   } catch (err) {
     alert(err);

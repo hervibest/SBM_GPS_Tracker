@@ -89,6 +89,36 @@ exports.updateStores = async (req, res, next) => {
 
 
 
+exports.deleteStores = async (req, res, next) => {
+  try {
+    
+  
+  
+    
+    const { storeId} = req.body;
+
+    await Store.deleteOne({ storeId }, (err, store) => {
+     
+      if (err) {
+        console.log('DEVICE DELETE ERROR', err);
+        return res.status(400).json({
+            error: 'Delete device gagal'
+        });
+    }
+      res.json(store);
+  ;
+    })
+   
+
+
+ 
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
+
+
 // @desc  Create a store
 // @route POST /api/v1/stores
 // @access Public
