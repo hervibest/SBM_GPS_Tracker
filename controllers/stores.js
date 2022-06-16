@@ -19,6 +19,27 @@ exports.getStores = async (req, res, next) => {
   }
 };
 
+exports.getOneStore = async (req, res, next) => {
+ 
+  try {
+    const storeId = req.params.id
+    await Store.findOne({ storeId }, (err, store) => {
+      if (err || !store) {
+        return res.status(400).json({
+            error: 'Device tidak ditemukan'
+        });
+    }
+      return res.json(store);
+    })
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
+
+
+
+
 exports.updateStores = async (req, res, next) => {
   try {
     //BOUNDARY
