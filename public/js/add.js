@@ -3,6 +3,7 @@ const storeId = document.getElementById("store-id");
 const storeAddress = document.getElementById("store-address");
 const storeLat = document.getElementById("store-lat");
 const storeLong = document.getElementById("store-long");
+const lockButton = document.getElementById("loc-check");
 
 // Get user location automatically
 function getLocation() {
@@ -21,7 +22,6 @@ function showPosition(position) {
 function showError(error) {
   alert(error.message);
 }
-getLocation();
 
 // Send POST to API to add store
 async function addStore(e) {
@@ -65,3 +65,4 @@ async function addStore(e) {
 }
 
 storeForm.addEventListener("submit", addStore);
+lockButton.addEventListener("click", getLocation);
