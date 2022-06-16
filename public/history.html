@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title>Animal Locator - Device History</title>
+  </head>
+  <body>
+    <div class="d-flex flex-row vw-100 vh-100">
+      <div
+        class="d-flex flex-column vh-100 px-5 py-5 justify-content-center bg-success alight-items-middle align-middle"
+      >
+        <a href="index.html" class="text-decoration-none"
+          ><span class="fw-bold fs-3 f-white text-light text-decoration-none">
+            Animal Locator
+          </span></a
+        >
+        <nav class="d-flex flex-column h-100 justify-content-center">
+          <a href="index.html" class="d-flex mb-5 align-items-center fs-5"
+            ><img src="img/home.svg" height="24" />
+            <div class="text-light ml-3 fs-5">Home</div></a
+          >
+          <a href="history.html" class="d-flex align-items-center fs-5"
+            ><img src="img/History.svg" height="24" />
+            <div class="text-light ml-3 fs-5">History</div></a
+          >
+        </nav>
+      </div>
+
+      <div class="container d-flex flex-column justify-content-center">
+        <span class="fs-2 fw-bold mb-5">History</span>
+
+        <table class="table" id="table">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Device Name</th>
+              <th scope="col">Lattitude</th>
+              <th scope="col">Logitude</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider" id="table-body">
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>11231245</td>
+              <td>1231225125</td>
+              <td>12-5-2022</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>11231245</td>
+              <td>1231225125</td>
+              <td>12-5-2022</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Tyler</td>
+              <td>11231245</td>
+              <td>1231225125</td>
+              <td>12-5-2022</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="js/add.js"></script>
+  </body>
+</html>
