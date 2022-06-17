@@ -52,8 +52,14 @@ async function addStore(e) {
       body: JSON.stringify(sendBody),
     });
 
-    if (res.status === 400) {
+    if (res.status === 409) {
       throw Error("Store already exists!");
+    }
+    if(res.status === 400) {
+      throw Error("Bad request! Name must be alphanumeric, lat/long must be numeric");
+    }
+    else if (res.status !== 201) {
+      throw Error(res.body["error"] === undefined ? res.status : res.body["error"]);
     }
 
     alert("Device added!");

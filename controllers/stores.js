@@ -140,12 +140,39 @@ exports.deleteStores = async (req, res, next) => {
 };
 
 
+isAlphaNumeric = (str) => {
+  var code, i, len;
+
+  for (i = 0, len = str.length; i < len; i++) {
+    code = str.charCodeAt(i);
+    if (!(code > 47 && code < 58) && // numeric (0-9)
+      !(code > 64 && code < 91) && // upper alpha (A-Z)
+      !(code > 96 && code < 123)) { // lower alpha (a-z)
+      return false;
+    }
+  }
+  return true;
+}
+
+
 // @desc  Create a store
 // @route POST /api/v1/stores
 // @access Public
 exports.addStore = async (req, res, next) => {
   try {
-    const store = await Store.create(req.body);
+
+
+    const { storeId, address, latitude, longitude } = req.body;
+
+    if (isAlphaNumeric(storeId) === false) {
+      return res.status(400).json({
+        error: 'StoreId must be alphanumeric'
+      });
+    }
+
+    const store = await Store.create(
+      { storeId, address, latitude, longitude }
+    );
 
 
     return res.status(201).json({
@@ -155,8 +182,10 @@ exports.addStore = async (req, res, next) => {
   } catch (err) {
     console.error(err);
     if (err.code === 11000) {
-      return res.status(400).json({ error: 'This store already exists' });
+      return res.status(409).json({ error: 'This store already exists' });
     }
     res.status(500).json({ error: 'Server error' });
   }
 };
+
+
