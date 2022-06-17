@@ -49,12 +49,12 @@
             <tr>
               <th scope="col">No</th>
               <th scope="col">Device Name</th>
-              <th scope="col">Lattitude</th>
-              <th scope="col">Logitude</th>
+              <th scope="col">Latitude</th>
+              <th scope="col">Longitude</th>
               <th scope="col">Date</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider" id="table-body">
+          <tbody class="table-group-divider" id="data">
             <tr>
               <th scope="row">1</th>
               <td>Mark</td>
@@ -81,6 +81,45 @@
       </div>
     </div>
 
-    <script src="js/add.js"></script>
+    <script>
+  
+ 
+  fetch('/api/v1/stores').then(
+    res=>{
+      res.json().then(
+        data=>{
+          console.log(data.data);
+          if(data.data.length >0){
+            var temp  = "";
+          }
+          let id = 0
+          data.data.forEach(element => {
+            id += 1
+            temp += '<tr>';
+              temp += "<td>"+id+"</td>"
+              temp += "<td>"+element.storeId+"</td>";
+              temp += "<td>"+element.latitude+"</td>";
+              temp += "<td>"+element.longitude+"</td>";
+              temp += "<td>"+element.createdAt+"</td>";
+            
+          });
+          document.getElementById("data").innerHTML = temp;
+    
+   
+        }
+      )
+    }
+  )
+
+
+
+ 
+
+
+getStores();
+
+
+
+    </script>
   </body>
 </html>
