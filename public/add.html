@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,13 +17,44 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: "#71D3B6",
+            },
+          },
+        },
+      };
+    </script>
     <title>Store Locator - Add Store</title>
   </head>
   <body>
-    <div class="d-flex flex-row vw-100 vh-100">
+    <div class="flex flex-col md:flex-row vw-100 vh-100 relative">
       <div
-        class="d-flex flex-column vh-100 px-5 py-5 justify-content-center bg-success alight-items-middle align-middle"
+        class="flex top-0 md:hidden w-100 bg-white justify-content-center py-3 text-main fw-bold text-xl shadow-md"
+      >
+        Animal Locator
+      </div>
+      <div
+        class="fixed bottom-0 flex flex-row sm:hidden border-t-2 w-100 justify-content-between py-4 px-5 bg-white"
+      >
+        <a href="index.html" class="flex align-items-center"
+          ><img src="img/home-black.svg" class="h-[24px]" />
+        </a>
+        <a href="history.html" class="flex align-items-center"
+          ><img src="img/history-black.svg" class="h-[24px]" />
+        </a>
+      </div>
+      <a
+        href="add.html"
+        class="flex fixed bottom-12 left-0 right-0 mr-auto ml-auto justify-content-center align-items-center md:hidden bg-main text-white fw-bold w-12 h-12 rounded-full text-2xl"
+        >+</a
+      >
+      <div
+        class="hidden md:flex flex-column vh-100 px-5 py-5 justify-content-center bg-main alight-items-middle align-middle"
       >
         <a href="index.html" class="text-decoration-none"
           ><span class="fw-bold fs-3 f-white text-light text-decoration-none">
@@ -41,11 +73,13 @@
         </nav>
       </div>
 
-      <div class="container d-flex flex-column justify-content-center">
-        <span class="fs-2 fw-bold mb-5">Add a device</span>
+      <div
+        class="container flex flex-column justify-content-center align-items-center md:align-items-start"
+      >
+        <span class="fs-4 md:fs-2 fw-bold mb-3 md:mb-5">Add a device</span>
 
         <form id="store-form" class="mb-4 w-100">
-          <div class="form-group mb-4">
+          <div class="form-group mb-4 outline-main">
             <label for="store-id">Device Name</label>
             <input type="text" id="store-id" class="form-control" />
           </div>
@@ -72,7 +106,10 @@
           </a>
 
           <div class="form-group mb-4 d-flex justify-content-center">
-            <button type="submit" class="btn btn-success mr-3">
+            <button
+              type="submit"
+              class="btn bg-main text-white hover:bg-main/50 mr-3"
+            >
               <span class="px-4">Submit</span>
             </button>
             <a href="index.html" class="btn btn-secondary"

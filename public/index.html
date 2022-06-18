@@ -27,12 +27,44 @@
       href="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
       rel="stylesheet"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: "#71D3B6",
+            },
+          },
+        },
+      };
+    </script>
     <title>Animal Locator</title>
   </head>
   <body>
-    <div class="d-flex flex-row vw-100 vh-100">
+    <div class="flex flex-col md:flex-row vw-100 vh-100 relative">
       <div
-        class="d-flex flex-column vh-100 px-5 py-5 justify-content-center bg-success alight-items-middle align-middle"
+        class="flex absolute top-0 md:hidden w-100 bg-white justify-content-center py-3 text-main fw-bold text-xl shadow-md"
+      >
+        Animal Locator
+      </div>
+      <div
+        class="absolute bottom-0 flex flex-row sm:hidden border-t-2 w-100 justify-content-between py-4 px-5 bg-white"
+      >
+        <a href="index.html" class="flex align-items-center"
+          ><img src="img/home-black.svg" class="h-[24px]" />
+        </a>
+        <a href="history.html" class="flex align-items-center"
+          ><img src="img/history-black.svg" class="h-[24px]" />
+        </a>
+      </div>
+      <a
+        href="add.html"
+        class="flex absolute bottom-12 left-0 right-0 mr-auto ml-auto justify-content-center align-items-center md:hidden bg-main text-white fw-bold w-12 h-12 rounded-full text-2xl"
+        >+</a
+      >
+      <div
+        class="hidden md:flex flex-column vh-100 px-5 py-5 justify-content-center bg-main alight-items-middle align-middle"
       >
         <a href="index.html" class="text-decoration-none"
           ><span class="fw-bold fs-3 f-white text-light text-decoration-none">
@@ -52,13 +84,12 @@
       </div>
 
       <div
-        class="container d-flex flex-column align-items-center justify-content-center"
+        class="min-h-screen px-0 container flex flex-column align-items-center justify-content-center"
       >
-        <div
-          id="map"
-          style="width: 100%; height: 75%; border-radius: 5px"
-        ></div>
-        <a href="add.html" class="btn btn-success mt-4"
+        <div id="map" class="w-100 h-75 rounded-sm"></div>
+        <a
+          href="add.html"
+          class="hidden md:flex btn bg-main text-white hover:bg-main/50 mt-4"
           ><div class="px-4">Add a device</div></a
         >
       </div>

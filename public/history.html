@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,13 +17,52 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: "#71D3B6",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @media only screen and (max-width: 600px) {
+        .table-repson {
+          display: none !important;
+        }
+      }
+    </style>
 
     <title>Animal Locator - Device History</title>
   </head>
   <body>
-    <div class="d-flex flex-row vw-100 vh-100">
+    <div class="flex flex-col md:flex-row vw-100 vh-100 relative">
       <div
-        class="d-flex flex-column vh-100 px-5 py-5 justify-content-center bg-success alight-items-middle align-middle"
+        class="flex top-0 md:hidden w-100 bg-white justify-content-center py-3 text-main fw-bold text-xl shadow-md"
+      >
+        Animal Locator
+      </div>
+      <div
+        class="fixed bottom-0 flex flex-row sm:hidden border-t-2 w-100 justify-content-between py-4 px-5 bg-white"
+      >
+        <a href="index.html" class="flex align-items-center"
+          ><img src="img/home-black.svg" class="h-[24px]" />
+        </a>
+        <a href="history.html" class="flex align-items-center"
+          ><img src="img/history-black.svg" class="h-[24px]" />
+        </a>
+      </div>
+      <a
+        href="add.html"
+        class="flex fixed bottom-12 left-0 right-0 mr-auto ml-auto justify-content-center align-items-center md:hidden bg-main text-white fw-bold w-12 h-12 rounded-full text-2xl"
+        >+</a
+      >
+      <div
+        class="hidden md:flex flex-column vh-100 px-5 py-5 justify-content-center bg-main alight-items-middle align-middle"
       >
         <a href="index.html" class="text-decoration-none"
           ><span class="fw-bold fs-3 f-white text-light text-decoration-none">
@@ -41,22 +81,28 @@
         </nav>
       </div>
 
-      <div class="container d-flex flex-column justify-content-center">
-        <div class="mb-5 d-flex justify-content-between">
-          <span class="fs-2 fw-bold">History</span
-          ><a href="add.html" class="btn btn-success mt-4"
+      <div
+        class="container d-flex flex-column justify-content-center md:justify-content-start"
+      >
+        <div
+          class="mb-3 md:mb-5 flex w-100 justify-content-between align-items-center"
+        >
+          <span class="flex fs-4 md:fs-2 fw-bold">History</span
+          ><a
+            href="add.html"
+            class="hidden md:flex btn bg-main text-white hover:bg-main/50 mt-4"
             ><div class="px-4">Add a device</div></a
           >
         </div>
 
-        <table class="table" id="table">
-          <thead>
+        <table class="table overflow-auto" id="table">
+          <thead class="bg-main text-white">
             <tr>
-              <th scope="col">No</th>
+              <th class="table-repson" scope="col">No</th>
               <th scope="col">Device Name</th>
-              <th scope="col">Latitude</th>
-              <th scope="col">Longitude</th>
-              <th scope="col">Date</th>
+              <th class="table-repson" scope="col">Latitude</th>
+              <th class="table-repson" scope="col">Longitude</th>
+              <th class="table-repson" scope="col">Date</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -75,14 +121,14 @@
           let id = 0;
           data.data.forEach((element) => {
             id += 1;
-            temp += "<tr>";
-            temp += "<td>" + id + "</td>";
+            temp += "<tr class='bg-main/20'>";
+            temp += "<td class='table-repson'>" + id + "</td>";
             temp += "<td>" + element.storeId + "</td>";
-            temp += "<td>" + element.latitude + "</td>";
-            temp += "<td>" + element.longitude + "</td>";
-            temp += "<td>" + element.createdAt + "</td>";
+            temp += "<td class='table-repson'>" + element.latitude + "</td>";
+            temp += "<td class='table-repson'>" + element.longitude + "</td>";
+            temp += "<td class='table-repson'>" + element.createdAt + "</td>";
             temp +=
-              "<td><a class='mr-2' href='update.html?id=" +
+              "<td class='flex'><a class='mr-2' href='update.html?id=" +
               element.storeId +
               "&latitude=" +
               element.latitude +
@@ -90,11 +136,12 @@
               element.longitude +
               "&address=" +
               element.address +
-              "'><img src='img/refresh.png' height='24' /><a/>";
+              "'><img src='img/refresh.png' class=' h-[18px] md:h-[24px] hover:opacity-50' /></a>";
             temp +=
               "<a href='delete.html?id=" +
               element.storeId +
-              "'><img src='img/bin.png' height='24' /><a/><td/>";
+              "'><img src='img/bin.png' class=' h-[18px] md:h-[24px] hover:opacity-50' /><a/></td>";
+            temp += "</tr>";
           });
           document.getElementById("data").innerHTML = temp;
         });

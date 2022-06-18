@@ -10,23 +10,34 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: "#71D3B6",
+            },
+          },
+        },
+      };
+    </script>
     <title>Animal Locator - Get One Device</title>
   </head>
   <body>
     <div class="container my-3">
-      <h1 class="display-4 text-center">
-        Find Device
-      </h1>
+      <h1 class="display-4 text-center">Find Device</h1>
 
       <form id="store-form" class="mb-4">
         <div class="form-group">
-          <p> Silakan masukkan nama device Anda!</p>
+          <p>Silakan masukkan nama device Anda!</p>
           <label for="store-id">Device Name</label>
           <input type="text" id="store-id" class="form-control" />
         </div>
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button type="submit" class="btn bg-main text-white hover:bg-main/50">
+          Submit
+        </button>
         <a href="index.html" class="btn btn-secondary">Back</a>
       </form>
     </div>
