@@ -42,7 +42,12 @@
       </div>
 
       <div class="container d-flex flex-column justify-content-center">
-        <span class="fs-2 fw-bold mb-5">History</span>
+        <div class="mb-5 d-flex justify-content-between">
+          <span class="fs-2 fw-bold">History</span
+          ><a href="add.html" class="btn btn-success mt-4"
+            ><div class="px-4">Add a device</div></a
+          >
+        </div>
 
         <table class="table" id="table">
           <thead>
@@ -52,74 +57,50 @@
               <th scope="col">Latitude</th>
               <th scope="col">Longitude</th>
               <th scope="col">Date</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider" id="data">
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>11231245</td>
-              <td>1231225125</td>
-              <td>12-5-2022</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>11231245</td>
-              <td>1231225125</td>
-              <td>12-5-2022</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Tyler</td>
-              <td>11231245</td>
-              <td>1231225125</td>
-              <td>12-5-2022</td>
-            </tr>
-          </tbody>
+          <tbody class="table-group-divider" id="data"></tbody>
         </table>
       </div>
     </div>
 
     <script>
-  
- 
-  fetch('/api/v1/stores').then(
-    res=>{
-      res.json().then(
-        data=>{
+      fetch("/api/v1/stores").then((res) => {
+        res.json().then((data) => {
           console.log(data.data);
-          if(data.data.length >0){
-            var temp  = "";
+          if (data.data.length > 0) {
+            var temp = "";
           }
-          let id = 0
-          data.data.forEach(element => {
-            id += 1
-            temp += '<tr>';
-              temp += "<td>"+id+"</td>"
-              temp += "<td>"+element.storeId+"</td>";
-              temp += "<td>"+element.latitude+"</td>";
-              temp += "<td>"+element.longitude+"</td>";
-              temp += "<td>"+element.createdAt+"</td>";
-            
+          let id = 0;
+          data.data.forEach((element) => {
+            id += 1;
+            temp += "<tr>";
+            temp += "<td>" + id + "</td>";
+            temp += "<td>" + element.storeId + "</td>";
+            temp += "<td>" + element.latitude + "</td>";
+            temp += "<td>" + element.longitude + "</td>";
+            temp += "<td>" + element.createdAt + "</td>";
+            temp +=
+              "<td><a class='mr-2' href='update.html?id=" +
+              element.storeId +
+              "&latitude=" +
+              element.latitude +
+              "&longitude=" +
+              element.longitude +
+              "&address=" +
+              element.address +
+              "'><img src='img/refresh.png' height='24' /><a/>";
+            temp +=
+              "<a href='delete.html?id=" +
+              element.storeId +
+              "'><img src='img/bin.png' height='24' /><a/><td/>";
           });
           document.getElementById("data").innerHTML = temp;
-    
-   
-        }
-      )
-    }
-  )
+        });
+      });
 
-
-
- 
-
-
-getStores();
-
-
-
+      getStores();
     </script>
   </body>
 </html>

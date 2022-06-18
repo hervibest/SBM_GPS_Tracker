@@ -5,6 +5,19 @@ const storeLat = document.getElementById("store-lat");
 const storeLong = document.getElementById("store-long");
 const lockButton = document.getElementById("loc-check");
 
+// Get qury string from URL
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get("id");
+const latitude = urlParams.get("latitude");
+const longitude = urlParams.get("longitude");
+const address = urlParams.get("address");
+
+id ? (storeId.value = id) : null;
+latitude ? (storeLat.value = latitude) : null;
+longitude ? (storeLong.value = longitude) : null;
+address ? (storeAddress.value = address) : null;
+
 // Get user location automatically
 function getLocation() {
   if (navigator.geolocation) {
