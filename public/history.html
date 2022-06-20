@@ -41,26 +41,24 @@
   </head>
   <body>
     <div class="flex flex-col md:flex-row vw-100 vh-100 relative">
-      <div
-        class="flex top-0 md:hidden w-100 bg-white justify-content-center py-3 text-main fw-bold text-xl shadow-md"
-      >
-        Animal Locator
+      <div class="z-[1000]">
+        <div
+          class="fixed bottom-0 flex flex-row sm:hidden border-t-2 w-100 justify-content-between py-4 px-5 bg-white"
+        >
+          <a href="index.html" class="flex align-items-center"
+            ><img src="img/home-black.svg" class="h-[24px]" />
+          </a>
+          <a href="history.html" class="flex align-items-center"
+            ><img src="img/history-black.svg" class="h-[24px]" />
+          </a>
+        </div>
+        <a
+          href="add.html"
+          class="flex fixed shadow-md bottom-12 left-0 right-0 mr-auto ml-auto justify-content-center align-items-center md:hidden bg-main text-white fw-bold w-14 h-14 rounded-full text-3xl"
+          >+</a
+        >
       </div>
-      <div
-        class="fixed bottom-0 flex flex-row sm:hidden border-t-2 w-100 justify-content-between py-4 px-5 bg-white"
-      >
-        <a href="index.html" class="flex align-items-center"
-          ><img src="img/home-black.svg" class="h-[24px]" />
-        </a>
-        <a href="history.html" class="flex align-items-center"
-          ><img src="img/history-black.svg" class="h-[24px]" />
-        </a>
-      </div>
-      <a
-        href="add.html"
-        class="flex fixed bottom-12 left-0 right-0 mr-auto ml-auto justify-content-center align-items-center md:hidden bg-main text-white fw-bold w-12 h-12 rounded-full text-2xl"
-        >+</a
-      >
+
       <div
         class="hidden md:flex flex-column vh-100 px-5 py-5 justify-content-center bg-main alight-items-middle align-middle"
       >
@@ -80,12 +78,16 @@
           >
         </nav>
       </div>
-
       <div
-        class="container d-flex flex-column justify-content-center md:justify-content-start"
+        class="flex md:hidden w-100 bg-white justify-content-center py-3 text-main fw-bold text-xl shadow-md"
+      >
+        Animal Locator
+      </div>
+      <div
+        class="container pt-16 pb-24 overflow-auto d-flex flex-column justify-content-center md:justify-content-start"
       >
         <div
-          class="mb-3 md:mb-5 flex w-100 justify-content-between align-items-center"
+          class="mb-2 md:mb-5 flex w-100 justify-content-between align-items-center"
         >
           <span class="flex fs-4 md:fs-2 fw-bold">History</span
           ><a
@@ -95,7 +97,7 @@
           >
         </div>
 
-        <table class="table overflow-auto" id="table">
+        <table class="table" id="table">
           <thead class="bg-main text-white">
             <tr>
               <th class="table-repson" scope="col">No</th>

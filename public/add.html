@@ -33,26 +33,23 @@
   </head>
   <body>
     <div class="flex flex-col md:flex-row vw-100 vh-100 relative">
-      <div
-        class="flex top-0 md:hidden w-100 bg-white justify-content-center py-3 text-main fw-bold text-xl shadow-md"
-      >
-        Animal Locator
+      <div class="z-[1000]">
+        <div
+          class="fixed bottom-0 flex flex-row sm:hidden border-t-2 w-100 justify-content-between py-4 px-5 bg-white"
+        >
+          <a href="index.html" class="flex align-items-center"
+            ><img src="img/home-black.svg" class="h-[24px]" />
+          </a>
+          <a href="history.html" class="flex align-items-center"
+            ><img src="img/history-black.svg" class="h-[24px]" />
+          </a>
+        </div>
+        <a
+          href="add.html"
+          class="flex fixed shadow-md bottom-12 left-0 right-0 mr-auto ml-auto justify-content-center align-items-center md:hidden bg-main text-white fw-bold w-14 h-14 rounded-full text-3xl"
+          >+</a
+        >
       </div>
-      <div
-        class="fixed bottom-0 flex flex-row sm:hidden border-t-2 w-100 justify-content-between py-4 px-5 bg-white"
-      >
-        <a href="index.html" class="flex align-items-center"
-          ><img src="img/home-black.svg" class="h-[24px]" />
-        </a>
-        <a href="history.html" class="flex align-items-center"
-          ><img src="img/history-black.svg" class="h-[24px]" />
-        </a>
-      </div>
-      <a
-        href="add.html"
-        class="flex fixed bottom-12 left-0 right-0 mr-auto ml-auto justify-content-center align-items-center md:hidden bg-main text-white fw-bold w-12 h-12 rounded-full text-2xl"
-        >+</a
-      >
       <div
         class="hidden md:flex flex-column vh-100 px-5 py-5 justify-content-center bg-main alight-items-middle align-middle"
       >
@@ -72,51 +69,57 @@
           >
         </nav>
       </div>
-
       <div
-        class="container flex flex-column justify-content-center align-items-center md:align-items-start"
+        class="flex top-0 md:hidden w-100 bg-white justify-content-center py-3 text-main fw-bold text-xl shadow-md"
       >
-        <span class="fs-4 md:fs-2 fw-bold mb-3 md:mb-5">Add a device</span>
+        Animal Locator
+      </div>
+      <div
+        class="container flex flex-column vh-100 py-16 justify-content-around align-items-center md:align-items-start"
+      >
+        <div class="flex flex-col w-100 align-items-center">
+          <span class="fs-4 md:fs-2 fw-bold mb-3 md:mb-5">Add a device</span>
 
-        <form id="store-form" class="mb-4 w-100">
-          <div class="form-group mb-4 outline-main">
-            <label for="store-id">Device Name</label>
-            <input type="text" id="store-id" class="form-control" />
-          </div>
-          <div class="form-group mb-4">
-            <label for="store-lat">Lattitude</label>
-            <input type="text" id="store-lat" class="form-control" />
-          </div>
-          <div class="form-group mb-4">
-            <label for="store-long">Longitude</label>
-            <input type="text" id="store-long" class="form-control" />
-          </div>
-          <div class="form-group mb-4">
-            <label for="store-address">Address</label>
-            <input type="text" id="store-address" class="form-control" />
-          </div>
+          <form id="store-form" class="mb-4 w-100">
+            <div class="form-group mb-4 outline-main">
+              <label for="store-id">Device Name</label>
+              <input type="text" id="store-id" class="form-control" />
+            </div>
+            <div class="form-group mb-4">
+              <label for="store-lat">Lattitude</label>
+              <input type="text" id="store-lat" class="form-control" />
+            </div>
+            <div class="form-group mb-4">
+              <label for="store-long">Longitude</label>
+              <input type="text" id="store-long" class="form-control" />
+            </div>
+            <div class="form-group mb-4">
+              <label for="store-address">Address</label>
+              <input type="text" id="store-address" class="form-control" />
+            </div>
 
-          <a
-            href="#"
-            id="loc-check"
-            class="mb-5 link-dark d-flex jsutify-content-center align-items-center"
-          >
-            <div class="mr-2">Check location</div>
-            <img src="img/Location.svg" height="14px" />
-          </a>
-
-          <div class="form-group mb-4 d-flex justify-content-center">
-            <button
-              type="submit"
-              class="btn bg-main text-white hover:bg-main/50 mr-3"
+            <a
+              href="#"
+              id="loc-check"
+              class="mb-5 link-dark d-flex jsutify-content-center align-items-center"
             >
-              <span class="px-4">Submit</span>
-            </button>
-            <a href="index.html" class="btn btn-secondary"
-              ><span class="px-4">Cancel</span></a
-            >
-          </div>
-        </form>
+              <div class="mr-2">Check location</div>
+              <img src="img/Location.svg" height="14px" />
+            </a>
+
+            <div class="form-group mb-4 d-flex justify-content-center">
+              <button
+                type="submit"
+                class="btn bg-main text-white hover:bg-main/50 mr-3"
+              >
+                <span class="px-4">Submit</span>
+              </button>
+              <a href="index.html" class="btn btn-secondary"
+                ><span class="px-4">Cancel</span></a
+              >
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 

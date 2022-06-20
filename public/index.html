@@ -42,27 +42,25 @@
     <title>Animal Locator</title>
   </head>
   <body>
-    <div class="flex flex-col md:flex-row vw-100 vh-100 relative">
-      <div
-        class="flex absolute top-0 md:hidden w-100 bg-white justify-content-center py-3 text-main fw-bold text-xl shadow-md"
-      >
-        Animal Locator
+    <div class="flex flex-col md:flex-row vw-100 min-h-full relative">
+      <div class="z-[1000]">
+        <div
+          class="fixed bottom-0 flex flex-row sm:hidden border-t-2 w-100 justify-content-between py-4 px-5 bg-white"
+        >
+          <a href="index.html" class="flex align-items-center"
+            ><img src="img/home-black.svg" class="h-[24px]" />
+          </a>
+          <a href="history.html" class="flex align-items-center"
+            ><img src="img/history-black.svg" class="h-[24px]" />
+          </a>
+        </div>
+        <a
+          href="add.html"
+          class="flex fixed shadow-md bottom-12 left-0 right-0 mr-auto ml-auto justify-content-center align-items-center md:hidden bg-main text-white fw-bold w-14 h-14 rounded-full text-3xl"
+          >+</a
+        >
       </div>
-      <div
-        class="absolute bottom-0 flex flex-row sm:hidden border-t-2 w-100 justify-content-between py-4 px-5 bg-white"
-      >
-        <a href="index.html" class="flex align-items-center"
-          ><img src="img/home-black.svg" class="h-[24px]" />
-        </a>
-        <a href="history.html" class="flex align-items-center"
-          ><img src="img/history-black.svg" class="h-[24px]" />
-        </a>
-      </div>
-      <a
-        href="add.html"
-        class="flex absolute bottom-12 left-0 right-0 mr-auto ml-auto justify-content-center align-items-center md:hidden bg-main text-white fw-bold w-12 h-12 rounded-full text-2xl"
-        >+</a
-      >
+
       <div
         class="hidden md:flex flex-column vh-100 px-5 py-5 justify-content-center bg-main alight-items-middle align-middle"
       >
@@ -84,12 +82,20 @@
       </div>
 
       <div
-        class="min-h-screen px-0 container flex flex-column align-items-center justify-content-center"
+        class="flex z-[1000] md:hidden w-100 bg-white justify-content-center py-3 text-main fw-bold text-xl shadow-md"
       >
-        <div id="map" class="w-100 h-75 rounded-sm"></div>
+        Animal Locator
+      </div>
+      <div
+        class="container vh-100 flex flex-column align-items-center justify-content-center"
+      >
+        <div class="w-100 h-100 sm:my-28">
+          <div id="map" class="w-100 px-0 h-100 rounded-sm"></div>
+        </div>
+
         <a
           href="add.html"
-          class="hidden md:flex btn bg-main text-white hover:bg-main/50 mt-4"
+          class="hidden md:flex -translate-y-16 btn bg-main text-white hover:bg-main/50 mt-4"
           ><div class="px-4">Add a device</div></a
         >
       </div>
